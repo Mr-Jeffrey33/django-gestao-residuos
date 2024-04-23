@@ -1,5 +1,7 @@
-from django.forms import ModelChoiceField, ModelForm, Select, DateInput, NumberInput
+from django.forms import DateInput, ModelChoiceField, ModelForm, NumberInput, Select
+
 from apps.entrada.models import Entrada
+
 
 class EntradaForm(ModelForm):
     class Meta:
@@ -7,14 +9,14 @@ class EntradaForm(ModelForm):
 
         fields = [
             "data",
-            "id_localidade",
+            "id_cluster",
             "id_classe",
             "peso",
         ]
 
         labels = {
             "data": "Data de Entrada",
-            "id_localidade": "Localidade",
+            "id_cluster": "Cluster",
             "id_classe": "Classe",
             "peso": "Peso",
         }
@@ -27,7 +29,7 @@ class EntradaForm(ModelForm):
                     "type": "date",
                 },
             ),
-            "id_localidade": Select(
+            "id_cluster": Select(
                 attrs={"class": "form-select", "placeholder": "Localidade"}
             ),
             "id_classe": Select(

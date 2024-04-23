@@ -5,23 +5,19 @@ from apps.agua.models import Agua
 
 class AguaAdmin(admin.ModelAdmin):
     list_display = [
-        "id_agua",
-        "id_localidade",
-        "id_fornecedor",
-        "dt_agua",
+        "id",
+        "id_cluster",
+        "data",
         "consumo",
-        "custo",
     ]
     list_display_links = [
-        "id_agua",
-        "id_localidade",
-        "id_fornecedor",
-        "dt_agua",
+        "id",
+        "id_cluster",
+        "data",
         "consumo",
-        "custo",
     ]
-    list_filter = ["id_localidade", "id_fornecedor", "dt_agua"]
-    search_fields = ["id_localidade", "id_fornecedor", "dt_agua"]
+    list_filter = ["id_cluster", "data"]
+    search_fields = ["id_cluster", "data"]
     list_per_page = 15
 
 

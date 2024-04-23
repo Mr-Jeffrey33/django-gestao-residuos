@@ -14,7 +14,10 @@ from os import path
 from pathlib import Path
 
 import environ
+from django.contrib.messages import constants as messages
 from django.core.management.utils import get_random_secret_key
+
+from .lista_estados import ESTADOS_BRASILEIROS
 
 env = environ.Env(
     # set casting, default value
@@ -51,7 +54,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_filters",
-    "apps.localidade.apps.LocalidadeConfig",
+    "apps.cluster.apps.ClusterConfig",
     "apps.classe.apps.ClasseConfig",
     "apps.destinacao.apps.DestinacaoConfig",
     "apps.entrada.apps.EntradaConfig",
@@ -61,6 +64,8 @@ INSTALLED_APPS = [
     "apps.agua.apps.AguaConfig",
     "apps.combustivel.apps.CombustivelConfig",
     "apps.eletricidade.apps.EletricidadeConfig",
+    "apps.tipo_combustivel.apps.TipoCombustivelConfig",
+    "apps.unidade_consumo.apps.UnidadeConsumoConfig",
 ]
 
 MIDDLEWARE = [
@@ -159,7 +164,6 @@ STATIC_ROOT = path.join(BASE_DIR, "staticfiles")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-from django.contrib.messages import constants as messages
 
 # MESSAGES CSS TAGS
 MESSAGE_TAGS = {
@@ -169,3 +173,5 @@ MESSAGE_TAGS = {
     messages.WARNING: "bg-warning text-white",
     messages.ERROR: "bg-danger text-white",
 }
+
+PAGESIZE = 15
