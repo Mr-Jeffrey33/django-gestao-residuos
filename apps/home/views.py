@@ -121,6 +121,12 @@ def monthly_lineplot(monthly_data):
         config=config,
     )
 
+def monthly_lineplot(monthly_data):
+    if not monthly_data or "ano" not in monthly_data.values():
+        return None
+
+    ano_minimo = min(values["ano"] for values in monthly_data.values())
+    # rest of the function
 
 def home(request):
     current_date = datetime.now()
